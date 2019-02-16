@@ -1,0 +1,126 @@
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-4 col-lg-offset-4">
+            <?php
+            $flash = $this->flashMessenger();
+            echo $flash->render('success',   array('alert', 'alert-dismissible', 'alert-success')); ?>
+        </div>
+    </div>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-xs-12 col-md-offset-3">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <i class="fa fa-clock-o fa-fw"></i> Faça seu Cadastro - Pacientes
+                        </div>
+                        <div class="panel-body">
+                            <div class="panel-body">
+                                <?php
+                                $form = new \Login\Form\CadastroForm($this->entityManager);
+                                $form->setAttribute('action', $this->url('login', array('action' => 'salvarPaciente')));
+                                $form->prepare();
+                                echo $this->form()->openTag($form);
+                                ?>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="cpfPessoa">CPF: </label>
+                                            <?php echo $this->formInput($form->get('cpfPessoa')); ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label for="nomePessoa">Nome: </label>
+                                            <?php echo $this->formInput($form->get('nomePessoa')); ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label for="enderecoPessoa">Endereço: </label>
+                                            <?php echo $this->formInput($form->get('enderecoPessoa')); ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="enderecoPessoa">Número: </label>
+                                            <?php echo $this->formNumber($form->get('numeroEndereco')); ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="enderecoPessoa">Complemento: </label>
+                                            <?php echo $this->formInput($form->get('complementoPessoa')); ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label for="enderecoPessoa">Bairro: </label>
+                                            <?php echo $this->formInput($form->get('bairroPessoa')); ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="estadoEndereco">Estado: </label>
+                                            <?php echo $this->formSelect($form->get('estadoEndereco')); ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="cidadeEndereco">Cidade: </label>
+                                            <?php echo $this->formSelect($form->get('cidadeEndereco')); ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="dtNascimentoPessoa">Data de Nascimento: </label>
+                                            <?php echo $this->formDate($form->get('dtNascimentoPessoa')); ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="enderecoPessoa">Telefone Fixo: </label>
+                                            <?php echo $this->formInput($form->get('telFixoPessoa')); ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="emailPessoa">E-mail: </label>
+                                            <?php echo $this->formEmail($form->get('emailPessoa')); ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="enderecoPessoa">Senha: </label>
+                                            <?php echo $this->formPassword($form->get('senhaPessoa')); ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <?php echo $this->formReset($form->get('resetCadastro')); ?>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <?php echo $this->formSubmit($form->get('submitCadastro')); ?>
+                                    </div>
+                                    <?php echo $this->form()->closeTag(); ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
